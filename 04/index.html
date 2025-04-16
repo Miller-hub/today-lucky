@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日宜忌查詢｜農民曆查詢｜農曆黃曆吉日宜忌</title>
+
+  <!-- ✅ SEO 基本設定 -->
+  <meta name="description" content="免費農民曆查詢工具，可查詢今日或任意日期的農曆、西元、天干地支、生肖、吉日宜忌與節氣，適合手機瀏覽。" />
+  <meta name="keywords" content="農民曆, 今日宜忌, 黃曆, 農曆查詢, 吉日查詢, 節氣表, 天干地支, 生肖, 宜忌" />
+  <meta name="author" content="Yoda Science" />
+
+  <!-- ✅ Open Graph (社群分享優化) -->
+  <meta property="og:title" content="今日宜忌查詢｜免費農民曆與黃曆工具" />
+  <meta property="og:description" content="查詢今日或任意日期的農民曆宜忌、農曆、生肖與節氣，支援手機，簡單實用。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://你的網址" />
+  <meta property="og:locale" content="zh_TW" />
+  <!-- 可自行加入 og:image -->
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.7.2/lunar.min.js"></script>
+
+  <style>
+    body {
+      font-family: "Helvetica Neue", "Noto Sans TC", sans-serif;
+      padding: 1em;
+      margin: 0;
+      background: #f8f4e6;
+      color: #333;
+    }
+    h1 {
+      color: #b45309;
+      font-size: 1.5em;
+      text-align: center;
+      margin-top: 1em;
+    }
+    #tip {
+      text-align: center;
+      font-size: 1em;
+      color: #555;
+      margin-top: 0.5em;
+    }
+    #datepicker {
+      display: block;
+      margin: 1em auto;
+      font-size: 1em;
+      padding: 0.5em;
+      width: 100%;
+      max-width: 300px;
+    }
+    .box {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.2em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+      margin-top: 1em;
+    }
+    .item {
+      margin-bottom: 1em;
+      font-size: 1em;
+    }
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+    #jieqi-list {
+      margin-top: 2em;
+      background: #fff;
+      padding: 1.2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    #jieqi-list h2 {
+      text-align: center;
+      color: #b45309;
+      margin-bottom: 0.5em;
+      font-size: 1.2em;
+    }
+    .jieqi-item {
+      margin: 0.25em 0;
+      font-size: 0.95em;
+    }
+    @media (min-width: 768px) {
+      body {
+        padding: 2em;
+        max-width: 720px;
+        margin: auto;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>今日宜忌查詢</h1>
+  <div id="tip">📅 請選擇要查詢的日期：</div>
+  <input type="date" id="datepicker" />
+
+  <div class="box">
+    <div class="item"><span class="label">西元日期：</span><span id="solar"></span></div>
+    <div class="item"><span class="label">農曆日期：</span><span id="lunar"></span></div>
+    <div class="item"><span class="label">天干地支：</span><span id="ganzhi"></span></div>
+    <div class="item"><span class="label">生肖：</span><span id="zodiac"></span></div>
+    <div class="item"><span class="label">宜：</span><span id="yi"></span></div>
+    <div class="item"><span class="label">忌：</span><span id="ji"></span></div>
+  </div>
+
+  <div id="jieqi-list">
+    <h2>2025 年節氣表</h2>
+    <div class="jieqi-item">1月20日　大寒　天氣最冷，注意保暖與養生</div>
+    <div class="jieqi-item">2月3日　立春　萬物萌芽，適合立願、耕作準備</div>
+    <div class="jieqi-item">2月18日　雨水　開始回暖，宜整地疏水</div>
+    <div class="jieqi-item">3月5日　驚蟄　驚雷驚蟄，宜除蟲淨宅</div>
+    <div class="jieqi-item">3月20日　春分　昼夜平分，適合播種、整理田地</div>
+    <div class="jieqi-item">4月4日　清明　掃墓追思，適合植樹</div>
+    <div class="jieqi-item">4月19日　穀雨　適合播種水稻與穀物</div>
+    <div class="jieqi-item">5月5日　立夏　萬物旺盛，開始注意防暑</div>
+    <div class="jieqi-item">5月21日　小滿　穀物漸滿，開始防蟲除草</div>
+    <div class="jieqi-item">6月5日　芒種　適合種植穀物，農事繁忙</div>
+    <div class="jieqi-item">6月21日　夏至　日照最長，防暑降火為宜</div>
+    <div class="jieqi-item">7月6日　小暑　天氣炎熱開始，適合養心靜氣</div>
+    <div class="jieqi-item">7月22日　大暑　盛夏最熱，宜避免勞動過度</div>
+    <div class="jieqi-item">8月7日　立秋　秋意初現，宜收成初作</div>
+    <div class="jieqi-item">8月23日　處暑　炎熱漸退，注意作物水分管理</div>
+    <div class="jieqi-item">9月7日　白露　露水顯現，早晚轉涼宜保暖</div>
+    <div class="jieqi-item">9月22日　秋分　昼夜平分，宜收割與保存糧食</div>
+    <div class="jieqi-item">10月8日　寒露　露重氣涼，適合種植耐寒作物</div>
+    <div class="jieqi-item">10月23日　霜降　氣溫驟降，防霜保暖</div>
+    <div class="jieqi-item">11月7日　立冬　開始進補，宜藏陽氣</div>
+    <div class="jieqi-item">11月22日　小雪　天冷降雪，防寒防濕</div>
+    <div class="jieqi-item">12月6日　大雪　地面積雪，注意交通與農田覆蓋</div>
+    <div class="jieqi-item">12月21日　冬至　一陽初生，宜祭祖、進補</div>
+  </div>
+
+  <script>
+    const dict = {
+      "入殓": "入殮", "动土": "動土", "开光": "開光", "订盟": "訂盟", "纳采": "納采",
+      "纳财": "納財", "开市": "開市", "开仓": "開倉", "盖屋": "蓋屋", "造庙": "造廟",
+      "修坟": "修墳", "祭奠": "祭奠", "针灸": "針灸", "经络": "經絡", "塑绘": "塑繪",
+      "动工": "動工", "扫舍": "掃舍", "结网": "結網", "会亲友": "會親友", "迁徙": "遷徙",
+      "问名": "問名", "纳畜": "納畜", "栽种": "栽種", "造仓": "造倉", "塞穴": "塞穴",
+      "拆卸": "拆卸", "启攒": "啟塚", "祈福": "祈福", "造船": "造船", "开池": "開池",
+      "掘井": "掘井", "修饰垣墙": "修飾垣牆", "安门": "安門", "立券": "立券",
+      "安香": "安香", "平治道涂": "平治道塗", "整手足甲": "整手足甲", "纳婿": "納婿",
+      "塑像": "塑像", "装门": "裝門", "上梁": "上樑", "结婚": "結婚", "订婚": "訂婚",
+      "补垣": "補垣", "启钻": "啟塚", "谢土": "謝土", "探病": "探病"
+    };
+
+    function convert(word) {
+      return dict[word] || word;
+    }
+
+    function updateLunarInfo(date) {
+      const solar = new Date(date);
+      const lunar = Lunar.fromDate(solar);
+
+      document.getElementById('solar').textContent = `${solar.getFullYear()}年${solar.getMonth() + 1}月${solar.getDate()}日`;
+      document.getElementById('lunar').textContent = lunar.getMonthInChinese() + '月' + lunar.getDayInChinese();
+      document.getElementById('ganzhi').textContent = `${lunar.getYearInGanZhi()}年 ${lunar.getMonthInGanZhi()}月 ${lunar.getDayInGanZhi()}日`;
+      document.getElementById('zodiac').textContent = lunar.getYearShengXiao() + "年";
+      document.getElementById('yi').textContent = lunar.getDayYi().map(convert).join("、") || "查無資料";
+      document.getElementById('ji').textContent = lunar.getDayJi().map(convert).join("、") || "查無資料";
+    }
+
+    updateLunarInfo(new Date());
+
+    document.getElementById('datepicker').addEventListener('change', function () {
+      if (this.value) updateLunarInfo(new Date(this.value));
+    });
+  </script>
+</body>
+</html>

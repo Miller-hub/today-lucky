@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日宜忌查詢｜農民曆查詢｜農曆黃曆吉日宜忌</title>
+  <meta name="description" content="免費農民曆查詢工具，可查詢今日或任意日期的農曆、西元、天干地支、生肖、吉日宜忌與節氣，支援手機瀏覽。" />
+  <meta name="keywords" content="農民曆, 今日宜忌, 黃曆, 農曆查詢, 吉日查詢, 節氣表, 天干地支, 生肖, 宜忌" />
+  <meta name="author" content="Yoda Science" />
+  <meta property="og:title" content="今日宜忌查詢｜免費農民曆與黃曆工具" />
+  <meta property="og:description" content="查詢今日或任意日期的農民曆宜忌、農曆、生肖與節氣，支援手機，簡單實用。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.7.2/lunar.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>今日宜忌查詢</h1>
+  <div id="tip">請選擇要查詢的日期：</div>
+  <input type="date" id="datepicker" />
+
+  <div class="card">
+    <div><strong>西元日期：</strong><span id="solar"></span></div>
+    <div><strong>農曆日期：</strong><span id="lunar"></span></div>
+    <div><strong>天干地支：</strong><span id="ganzhi"></span></div>
+    <div><strong>生肖：</strong><span id="zodiac"></span></div>
+    <div><strong>宜：</strong><span id="yi"></span></div>
+    <div><strong>忌：</strong><span id="ji"></span></div>
+  </div>
+
+  <div class="card">
+    <h2>2025 年節氣表</h2>
+    <div class="jieqi-item">1月20日　大寒　天氣最冷，注意保暖與養生</div>
+    <div class="jieqi-item">2月3日　立春　萬物萌芽，適合立願、耕作準備</div>
+    <div class="jieqi-item">2月18日　雨水　開始回暖，宜整地疏水</div>
+    <div class="jieqi-item">3月5日　驚蟄　驚雷驚蟄，宜除蟲淨宅</div>
+    <div class="jieqi-item">3月20日　春分　昼夜平分，適合播種、整理田地</div>
+    <div class="jieqi-item">4月4日　清明　掃墓追思，適合植樹</div>
+    <div class="jieqi-item">4月19日　穀雨　適合播種水稻與穀物</div>
+    <div class="jieqi-item">5月5日　立夏　萬物旺盛，開始注意防暑</div>
+    <div class="jieqi-item">5月21日　小滿　穀物漸滿，開始防蟲除草</div>
+    <div class="jieqi-item">6月5日　芒種　適合種植穀物，農事繁忙</div>
+    <div class="jieqi-item">6月21日　夏至　日照最長，防暑降火為宜</div>
+    <div class="jieqi-item">7月6日　小暑　天氣炎熱開始，適合養心靜氣</div>
+    <div class="jieqi-item">7月22日　大暑　盛夏最熱，宜避免勞動過度</div>
+    <div class="jieqi-item">8月7日　立秋　秋意初現，宜收成初作</div>
+    <div class="jieqi-item">8月23日　處暑　炎熱漸退，注意作物水分管理</div>
+    <div class="jieqi-item">9月7日　白露　露水顯現，早晚轉涼宜保暖</div>
+    <div class="jieqi-item">9月22日　秋分　昼夜平分，宜收割與保存糧食</div>
+    <div class="jieqi-item">10月8日　寒露　露重氣涼，適合種植耐寒作物</div>
+    <div class="jieqi-item">10月23日　霜降　氣溫驟降，防霜保暖</div>
+    <div class="jieqi-item">11月7日　立冬　開始進補，宜藏陽氣</div>
+    <div class="jieqi-item">11月22日　小雪　天冷降雪，防寒防濕</div>
+    <div class="jieqi-item">12月6日　大雪　地面積雪，注意交通與農田覆蓋</div>
+    <div class="jieqi-item">12月21日　冬至　一陽初生，宜祭祖、進補</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
